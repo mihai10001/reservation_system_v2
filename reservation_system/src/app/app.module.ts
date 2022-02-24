@@ -10,9 +10,11 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
+import { AuthComponent } from './auth/auth.component';
+import { TokenInterceptor } from './auth/auth-token.interceptor';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, AuthComponent],
   entryComponents: [],
   imports: [
     BrowserModule,
@@ -23,7 +25,13 @@ import { AppRoutingModule } from './app-routing.module';
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
   ],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
