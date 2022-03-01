@@ -1,0 +1,30 @@
+<ion-list class="list-layout">
+  <ion-item>
+    <ion-label position="fixed">Locația</ion-label>
+    <ion-input disabled value="{{ bookingView.placeTitle }}"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="fixed">Nume</ion-label>
+    <ion-input disabled value="{{ bookingView.name }}"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="fixed">Data/ora</ion-label>
+    <ion-input disabled value="{{ bookingView.dateISONoTime }}"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-grid>
+      <ion-row *ngFor="let row of nrRows | async; let i = index">
+        <ion-col *ngFor="let col of nrCols | async; let j = index" class="ion-item-border">
+          <ion-checkbox #checkboxes style="display: block; margin: auto" disabled>{{ i }},{{ j }}</ion-checkbox>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-item>
+
+  <ion-button color="primary" expand="block" (click)="onDeleteButton()">
+    <ion-icon name="trash"></ion-icon>Anulează / șterge rezervarea
+  </ion-button>
+</ion-list>
