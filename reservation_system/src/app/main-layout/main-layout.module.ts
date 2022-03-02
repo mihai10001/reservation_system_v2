@@ -12,6 +12,7 @@ import { MyBookingsComponent } from './pages/my-bookings/my-bookings.component';
 import { AdvancedSearchComponent } from './pages/advanced-search/advanced-search.component';
 import { BookingComponent } from './pages/booking/booking.component';
 import { ReviewsComponent } from './pages/reviews/reviews.component';
+import { AddReviewComponent } from './pages/reviews/add-review/add-review.component';
 
 // Component
 import { DetailedBookingInfoComponent } from './components/detailed-booking-info/detailed-booking-info.component';
@@ -25,6 +26,7 @@ import { DetailedBookingInfoComponent } from './components/detailed-booking-info
     AdvancedSearchComponent,
     BookingComponent,
     ReviewsComponent,
+    AddReviewComponent,
     DetailedBookingInfoComponent,
   ],
   imports: [
