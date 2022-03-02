@@ -7,6 +7,7 @@ import { BookingComponent } from './pages/booking/booking.component';
 import { DiscoverPlacesComponent } from './pages/discover-places/discover-places.component';
 import { FavouritePlacesComponent } from './pages/favourite-places/favourite-places.component';
 import { MyBookingsComponent } from './pages/my-bookings/my-bookings.component';
+import { ReviewsComponent } from './pages/reviews/reviews.component';
 
 const routes: Routes = [
   {
@@ -32,6 +33,10 @@ const routes: Routes = [
       {
         path: 'booking/:placeId',
         component: BookingComponent
+      },
+      {
+        path: 'reviews/:placeId',
+        component: ReviewsComponent
       },
     ]
   },

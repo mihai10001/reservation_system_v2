@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/discover-places"></ion-back-button>
+    </ion-buttons>
+
+    <ion-title>Recenzii {{place?.title}}</ion-title>
+
+    <ion-buttons slot="primary">
+      <ion-button [routerLink]="['/', 'add-review', placeId]" >
+        <ion-icon name="add" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngIf="reviews.length === 0" style="background-color: lightgray" class="ion-text-center ion-padding">
+    <div style="padding-bottom: 5px">Nu există recenzii!</div>
+    <ion-button size="small" routerLink="/discover-places" color="primary">
+      <ion-icon name="home"></ion-icon>
+    </ion-button>
+  </ion-card>
+
+  <ion-row>
+    <ion-col size="12" size-sm="8" offset-sm="2" *ngIf="averateRating" class="ion-text-center ion-no-margin">
+      <h3>Media notelor: {{averateRating | number : '1.0-1'}} / 5</h3>
+      <ion-item>
+        <ion-range [value]="averateRating" 
+          min="0" max="5" step="100" snaps="false" ticks="true" disabled="true"></ion-range>
+      </ion-item>
+    </ion-col>
+    <ion-col size="12" size-sm="8" offset-sm="2">
+      <ion-list>
+        <ion-item *ngFor="let review of reviews">
+          <ion-label>
+            <h2>Titlu: {{review?.title}}</h2>
+            <p>Descriere: {{review?.description}}</p>
+            <p>Notă: {{review?.rating}} / 5</p>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-col>
+  </ion-row>
+</ion-content>

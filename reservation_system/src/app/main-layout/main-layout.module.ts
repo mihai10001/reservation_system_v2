@@ -11,6 +11,7 @@ import { FavouritePlacesComponent } from './pages/favourite-places/favourite-pla
 import { MyBookingsComponent } from './pages/my-bookings/my-bookings.component';
 import { AdvancedSearchComponent } from './pages/advanced-search/advanced-search.component';
 import { BookingComponent } from './pages/booking/booking.component';
+import { ReviewsComponent } from './pages/reviews/reviews.component';
 
 // Component
 import { DetailedBookingInfoComponent } from './components/detailed-booking-info/detailed-booking-info.component';
@@ -23,6 +24,7 @@ import { DetailedBookingInfoComponent } from './components/detailed-booking-info
     MyBookingsComponent,
     AdvancedSearchComponent,
     BookingComponent,
+    ReviewsComponent,
     DetailedBookingInfoComponent,
   ],
   imports: [
