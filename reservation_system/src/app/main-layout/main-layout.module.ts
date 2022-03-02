@@ -10,6 +10,7 @@ import { DiscoverPlacesComponent } from './pages/discover-places/discover-places
 import { FavouritePlacesComponent } from './pages/favourite-places/favourite-places.component';
 import { MyBookingsComponent } from './pages/my-bookings/my-bookings.component';
 import { AdvancedSearchComponent } from './pages/advanced-search/advanced-search.component';
+import { BookingComponent } from './pages/booking/booking.component';
 
 // Component
 import { DetailedBookingInfoComponent } from './components/detailed-booking-info/detailed-booking-info.component';
@@ -21,6 +22,7 @@ import { DetailedBookingInfoComponent } from './components/detailed-booking-info
     FavouritePlacesComponent,
     MyBookingsComponent,
     AdvancedSearchComponent,
+    BookingComponent,
     DetailedBookingInfoComponent,
   ],
   imports: [

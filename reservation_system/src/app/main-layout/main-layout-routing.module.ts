@@ -29,6 +29,10 @@ const routes: Routes = [
         path: 'search',
         component: AdvancedSearchComponent
       },
+      {
+        path: 'booking/:placeId',
+        component: BookingComponent
+      },
     ]
   },
 ];

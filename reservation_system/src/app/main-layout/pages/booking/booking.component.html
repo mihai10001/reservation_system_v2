@@ -1,0 +1,72 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/discover-places"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Rezervă {{place?.title}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngIf="isLoading === true" class="ion-text-center">
+    <ion-spinner name="crescent" color="secondary" style="position: absolute; transform: scale(3); padding-top: 300px"></ion-spinner>
+  </div>
+
+  <form [formGroup]="bookingForm">
+    <ion-grid>
+      <ion-row>
+        <ion-col size-sm="6" offset-sm="3">
+          <ion-card class="ion-text-center ion-padding ion-no-margin no-select">
+            <ion-text >
+              Completați numele și selectați data, ora și locurile dorite, apoi apăsați Rezervă.
+            </ion-text>
+            <ion-text color="primary">
+              Număr maxim de locuri la masă: {{ place?.defaultTableSize }}.
+            </ion-text>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size-sm="6" offset-sm="3">
+          <ion-item>
+            <ion-label position="floating">Nume <span color="warning">*</span></ion-label>
+            <ion-input formControlName="name"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size-sm="6" offset-sm="3">
+          <ion-item>
+            <ion-datetime formControlName="dateISONoTime" [min]="currentDate"
+              presentation="date" size="cover">
+            </ion-datetime>
+          </ion-item>
+          <ion-item (click)="showPicker()">
+            <ion-label [color]="isHourClicked? 'success': ''">Ora</ion-label>
+            {{ selectedHour }}
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <ion-row>
+      <ion-col size-sm="6" offset-sm="3">
+        <ion-grid>
+          <ion-row *ngFor="let row of nrRows | async; let i = index">
+            <ion-col *ngFor="let col of nrCols | async; let j = index" class="ion-item-border">
+              <ion-checkbox #checkboxes style="display: block; margin: auto" (ionChange)="onCheckboxValidate()" color="success">{{ i }},{{ j }}</ion-checkbox>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size-sm="6" offset-sm="3" >
+        <ion-button color="primary" expand="block" [disabled]="bookingForm.invalid" (click)="createBooking()">Rezervă</ion-button>
+      </ion-col>
+    </ion-row>
+  </form>
+</ion-content>
