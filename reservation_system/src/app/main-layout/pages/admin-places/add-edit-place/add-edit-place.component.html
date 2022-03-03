@@ -1,0 +1,127 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/admin-places"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ addOrEdit === 'add'? 'Adaugă' : 'Modifică' }} oferta</ion-title>
+    <ion-buttons slot=primary>
+      <ion-button (click)="onAddOrEditPlace()" [disabled]="addEditPlaceForm.invalid"> 
+        <ion-icon name="checkmark" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="addEditPlaceForm">
+    <ion-grid>
+        <ion-row>
+          <ion-col size-sm="6" offset-sm="3">
+            <ion-item>
+              <ion-label position="floating">Titlu *</ion-label>
+              <ion-input text="text" autocomplete autocorrect autocapitalize="words" formControlName="title"></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        
+        <ion-row>
+          <ion-col size-sm="6" offset-sm="3">
+            <ion-item>
+              <ion-label position="floating">Descriere *</ion-label>
+              <ion-input formControlName="description"></ion-input> 
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        <ion-row *ngIf="addEditPlaceForm.get('description').invalid && addEditPlaceForm.get('description').touched">
+          <ion-col size-sm="6" offset-sm="3">
+              <p>Descrierea trebuie să conțină între 0 și 201 de caractere. </p>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col size-sm="6" offset-sm="3">
+            <ion-item>
+              <ion-label position="floating">Orar (text) *</ion-label>
+              <ion-input formControlName="schedule"></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col size-sm="6" offset-sm="3">
+            <ion-item>
+              <ion-label position="floating">Imagine (URL or Base64) *</ion-label>
+              <ion-input formControlName="imageUrl"></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+
+        <ion-row formGroupName="openDays">
+          <ion-col size-sm="6" offset-sm="3">
+            <ion-item style="display: inline-block"> 
+              <ion-label>Deschis:</ion-label>
+            </ion-item>
+
+            <ion-item style="display: inline-block" class="ion-no-margin"> 
+              <ion-label>Săpt.&nbsp;</ion-label>
+              <ion-checkbox formControlName="week"></ion-checkbox>
+            </ion-item>
+
+            <ion-item style="display: inline-block">
+              <ion-label>Sâm.&nbsp;</ion-label>
+              <ion-checkbox formControlName="saturday"></ion-checkbox>
+            </ion-item>
+
+            <ion-item style="display: inline-block">
+              <ion-label>Dum.&nbsp;</ion-label>
+              <ion-checkbox formControlName="sunday"></ion-checkbox>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col size-sm="6" offset-sm="3">
+            <ion-item>
+              <ion-label position="floating">Numărul de persoane la o masă *</ion-label>
+              <ion-input type="number" formControlName="defaultTableSize"></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col size-sm="6" offset-sm="3">
+            <ion-item>
+              <ion-label position="floating">Numărul de rânduri de mese</ion-label>
+              <ion-range formControlName="availableGridRows"
+                min="1" max="8" step="1" snaps="true" color="primary" pin="true">
+              </ion-range>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col size-sm="6" offset-sm="3">
+            <ion-item>
+              <ion-label position="floating">Numărul de coloane de mese</ion-label>
+              <ion-range formControlName="availableGridCols"
+                min="1" max="8" step="1" snaps="true" color="primary" pin="true">
+              </ion-range>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col size-sm="6" offset-sm="3">
+            <div style="margin: 7px;">Selecțati mesele care sunt disponibile</div>
+            <ion-grid>
+              <ion-row *ngFor="let row of nrRows | async; let i = index">
+                <ion-col *ngFor="let col of nrCols | async; let j = index" class="ion-item-border">
+                  <ion-checkbox #checkboxes style="display: block; margin: auto">{{ i }},{{ j }}</ion-checkbox>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-col>
+        </ion-row>
+    </ion-grid>
+  </form> 
+</ion-content>

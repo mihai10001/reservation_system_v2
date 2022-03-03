@@ -15,6 +15,7 @@ import { ReviewsComponent } from './pages/reviews/reviews.component';
 import { AddReviewComponent } from './pages/reviews/add-review/add-review.component';
 import { AdminBookingsComponent } from './pages/admin-bookings/admin-bookings.component';
 import { AdminPlacesComponent } from './pages/admin-places/admin-places.component';
+import { AdminAddEditPlaceComponent } from './pages/admin-places/add-edit-place/add-edit-place.component';
 
 // Component
 import { DetailedBookingInfoComponent } from './components/detailed-booking-info/detailed-booking-info.component';
@@ -32,6 +33,7 @@ import { DetailedBookingInfoComponent } from './components/detailed-booking-info
     DetailedBookingInfoComponent,
     AdminBookingsComponent,
     AdminPlacesComponent,
+    AdminAddEditPlaceComponent
   ],
   imports: [
     CommonModule,

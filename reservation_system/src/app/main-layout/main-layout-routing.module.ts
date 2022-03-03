@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { MainLayoutComponent } from './main-layout.component';
 import { AdminBookingsComponent } from './pages/admin-bookings/admin-bookings.component';
+import { AdminAddEditPlaceComponent } from './pages/admin-places/add-edit-place/add-edit-place.component';
 import { AdminPlacesComponent } from './pages/admin-places/admin-places.component';
 import { AdvancedSearchComponent } from './pages/advanced-search/advanced-search.component';
 import { BookingComponent } from './pages/booking/booking.component';
@@ -52,6 +53,11 @@ const routes: Routes = [
       {
         path: 'admin-places',
         component: AdminPlacesComponent
+      },
+      { path: 'admin-add-edit-place', redirectTo: 'admin-add-edit-place/', pathMatch: 'full' },
+      {
+        path: 'admin-add-edit-place/:placeId',
+        component: AdminAddEditPlaceComponent
       },
     ]
   },
