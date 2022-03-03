@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { MainLayoutComponent } from './main-layout.component';
 import { AdminBookingsComponent } from './pages/admin-bookings/admin-bookings.component';
+import { AdminPlacesComponent } from './pages/admin-places/admin-places.component';
 import { AdvancedSearchComponent } from './pages/advanced-search/advanced-search.component';
 import { BookingComponent } from './pages/booking/booking.component';
 import { DiscoverPlacesComponent } from './pages/discover-places/discover-places.component';
@@ -47,6 +48,10 @@ const routes: Routes = [
       {
         path: 'admin-bookings',
         component: AdminBookingsComponent
+      },
+      {
+        path: 'admin-places',
+        component: AdminPlacesComponent
       },
     ]
   },
