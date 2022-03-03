@@ -13,6 +13,7 @@ import { AdvancedSearchComponent } from './pages/advanced-search/advanced-search
 import { BookingComponent } from './pages/booking/booking.component';
 import { ReviewsComponent } from './pages/reviews/reviews.component';
 import { AddReviewComponent } from './pages/reviews/add-review/add-review.component';
+import { AdminBookingsComponent } from './pages/admin-bookings/admin-bookings.component';
 
 // Component
 import { DetailedBookingInfoComponent } from './components/detailed-booking-info/detailed-booking-info.component';
@@ -28,6 +29,7 @@ import { DetailedBookingInfoComponent } from './components/detailed-booking-info
     ReviewsComponent,
     AddReviewComponent,
     DetailedBookingInfoComponent,
+    AdminBookingsComponent,
   ],
   imports: [
     CommonModule,
