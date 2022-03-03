@@ -1,3 +1,56 @@
+<ion-menu side="start" menuId="sidebar" contentId="main-layout">
+    <ion-header>
+        <ion-toolbar color="primary">
+            <ion-title>Reservation system</ion-title>
+        </ion-toolbar>
+    </ion-header>
+    <ion-content>
+        <ion-list>
+            <ion-menu-toggle auto-hide="true">
+                <ion-item routerLink="/discover-places">
+                    <ion-icon name="home" slot="start"></ion-icon>
+                    Descoperă locații
+                </ion-item>
+                <ion-item routerLink="/my-favourite-places">
+                    <ion-icon name="heart" slot="start"></ion-icon>
+                    Locații favorite
+                </ion-item>
+                <ion-item routerLink="/my-bookings">
+                    <ion-icon name="body" slot="start"></ion-icon>
+                    Rezervările mele
+                </ion-item>
+                <ion-item routerLink="/search">
+                    <ion-icon name="search" slot="start"></ion-icon>
+                    Căutare avansată
+                </ion-item>
+
+                <ion-item-divider></ion-item-divider>
+
+                <ion-item>
+                    <ion-text color="primary">Admin</ion-text>
+                </ion-item>
+
+                <ion-item routerLink="/admin-places">
+                    <ion-icon name="construct" slot="start"></ion-icon>
+                    <ion-label>Administrează locații</ion-label>
+                </ion-item>
+                <ion-item routerLink="/admin-bookings">
+                    <ion-icon name="construct" slot="start"></ion-icon>
+                    <ion-label>Administrează rezervări</ion-label>
+                </ion-item>
+
+                <ion-item-divider></ion-item-divider>
+        
+                <ion-item (click)="logout()" button>
+                    <ion-icon name="exit" slot="start"></ion-icon>
+                    <ion-label>Deconectare</ion-label>
+                </ion-item>
+            </ion-menu-toggle>
+        </ion-list>
+    </ion-content>
+</ion-menu>
+
+
 <ion-router-outlet id="main-layout">
 
 </ion-router-outlet>
